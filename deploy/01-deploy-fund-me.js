@@ -16,7 +16,6 @@ module.exports.default = async ({ getNamedAccounts, deployments }) => {
         ethUsdPriceFeedAddress =
             networkConfig[chainId]["ethUsdPriceFeedAddress"]
     }
-    console.log(ethUsdPriceFeedAddress)
     const args = [ethUsdPriceFeedAddress]
     const fundMe = await deploy("FundMe", {
         from: deployer,
