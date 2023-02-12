@@ -60,3 +60,5 @@ describe("FundMe", async function () {
       })
     })
 })
+// yarn add --dev hardhat @nomiclabs/hardhat-ethers@npm:hardhat-deploy-ethers ethers
+// "ethers": "^5.7.2",   in package json
