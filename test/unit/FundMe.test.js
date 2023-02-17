@@ -53,7 +53,7 @@ describe("FundMe", async function () {
         })
         it("allows us to withdraw with multiple funders", async function () {
             // Arrange
-            const accounts = await ethers.getSigners()            
+            const accounts = await ethers.getSigners()
             for (let i = 1; i < 6; i++) {
                 const fundMeConnectedContract = await fundMe.connect(accounts[i])
                 await fundMeConnectedContract.fund({ value: sendValue })

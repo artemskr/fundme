@@ -13,8 +13,7 @@ module.exports.default = async ({ getNamedAccounts, deployments }) => {
         const ethUsdAggregator = await deployments.get("MockV3Aggregator")
         ethUsdPriceFeedAddress = ethUsdAggregator.address
     } else {
-        ethUsdPriceFeedAddress =
-            networkConfig[chainId]["ethUsdPriceFeedAddress"]
+        ethUsdPriceFeedAddress = networkConfig[chainId]["ethUsdPriceFeedAddress"]
     }
     const args = [ethUsdPriceFeedAddress]
     const fundMe = await deploy("FundMe", {
@@ -24,10 +23,7 @@ module.exports.default = async ({ getNamedAccounts, deployments }) => {
         waitConfirmations: network.config.blockConfirmations || 1,
     })
 
-    if (
-        !developmentChains.includes(network.name) &&
-        process.env.ETHERSCAN_API_KEY
-    ) {
+    if (!developmentChains.includes(network.name) && process.env.ETHERSCAN_API_KEY) {
         await verify(fundMe.address, args)
     }
 
