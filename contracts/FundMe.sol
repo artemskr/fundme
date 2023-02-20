@@ -39,11 +39,15 @@ contract FundMe {
     }
 
     receive() external payable {
-        fund();
+        if (msg.value > 0) {
+            fund();
+        }
     }
 
     fallback() external payable {
-        fund();
+        if (msg.value > 0) {
+            fund();
+        }
     }
 
     /**
